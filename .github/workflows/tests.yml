@@ -21,6 +21,6 @@ jobs:
       - name: Download agent
         run: |
           wget --progress=dot:giga https://download.newrelic.com/newrelic/java-agent/newrelic-agent/${NEW_RELIC_VERSION}/newrelic-agent-${NEW_RELIC_VERSION}.jar
-          mv newrelic-agent*.jar /newrelic.jar
+          mv newrelic-agent*.jar newrelic.jar
       - name: Run Tests
-        run: mvn test -DargLine="-javaagent:/newrelic.jar" -Dnewrelic-agent.version=${NEW_RELIC_VERSION}
+        run: mvn test -DargLine="-javaagent:newrelic.jar" -Dnewrelic-agent.version=${NEW_RELIC_VERSION}
