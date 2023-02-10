@@ -4,7 +4,7 @@ on: push
 
 jobs:
   test-agent:
-    name: Test Agent (8.0.0)
+    name: Test Agent
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -16,7 +16,8 @@ jobs:
       - name: Set up JDK 1.8
         uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: 8
+          distribution: corretto
       - name: Download agent
         run: |
           wget --progress=dot:giga https://download.newrelic.com/newrelic/java-agent/newrelic-agent/${NEW_RELIC_VERSION}/newrelic-agent-${NEW_RELIC_VERSION}.jar
