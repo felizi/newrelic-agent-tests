@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        agent-version: ['8.0.0', '7.9.0']
+        agent-version: ['8.0.1', '8.0.0', '7.9.0']
     env:
       NEW_RELIC_VERSION: ${{ matrix.agent-version }}
     steps:
