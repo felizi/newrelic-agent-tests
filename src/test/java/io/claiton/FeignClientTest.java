@@ -16,4 +16,12 @@ public class FeignClientTest {
         String response = api.echo("response body will be this");
         assert response.contains("response body will be this");
     }
+
+    @Test
+    @Trace(dispatcher = true)
+    public void testFeignClientEchoAPI() {
+        FeignClientEchoAPI api = Feign.builder().target(FeignClientEchoAPI.class, "https://postman-echo.com");
+        String response = api.echo("response body will be this");
+        assert response.contains("response body will be this");
+    }
 }
